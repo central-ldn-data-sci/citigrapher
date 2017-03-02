@@ -1,0 +1,473 @@
+# Citigrapher #1: Google Maps API
+OJ Watson  
+`r format(Sys.time(), '%d %B, %Y')`  
+
+## Overview
+
+
+1. User input 
+2. API query
+3. Storage & Extension
+
+These 3 parts will be demonstrated in the following tutorial and will give an idea
+of how a few packages can be used to tackle the problem. 
+
+## 1. User input
+
+The first thing that a user will want to do when using citigrapher is to input locations
+that represent their starting and final destinations. These may represent their work and
+home addresses respectively. We will want to be able to do this for a number of potential
+people.
+
+
+
+We can now use this within a larger function to get everyone's addresses:
+
+
+
+The above will clearly be insufficient/annoying when there are lots of people, so in a future meetup
+we will be exploring how to best carry out local storage for a user so that they only ever have to enter
+information for a particular person once. I.e. if you have already entered your friend Bob's work and 
+home addresses you don't want to do that every time, but simply ask the user whether they want to use
+Bob's default addresses. 
+
+We will now pretend that we saved this output to file so we can use it in the next step, so we will 
+now import it here:
+
+
+```r
+user_addresses <- read.delim("inst/extdata/user_addresses.txt", 
+                             sep="\t",
+                             stringsAsFactors = FALSE)
+
+## turn it into a list output like above
+res <- list()
+length(res) <- length(user_addresses)
+for(i in 1:length(user_addresses)){
+  res[[i]]$Location$Start <- user_addresses$Start[i]
+  res[[i]]$Location$End <- user_addresses$End[i]
+}
+```
+
+## 2. API query
+
+With the addresses we will want to isolate which tube stops are best for each person's start and
+end destination. To do this we will use the igraph tube map object that is saved within the citigrapher repo,
+along with the ggmap package which is superb. First we will need to convert our addresses to lat long
+
+
+```r
+## first let's load necessary packages
+require(ggmap)
+require(igraph)
+
+## Then let's build a function to query google for the lat long of our postcodes
+## There is lot's of extra info in here which is not needed now, but will be useful in 
+## later meetups
+get_geo_details <- function(location){   
+  
+  # use the gecode function to query google servers
+  geo_reply = ggmap::geocode(location, output='all', messaging=TRUE, override_limit=TRUE)
+  
+  # now extract the bits that we need from the returned list
+  answer <- data.frame(lat=NA, long=NA, accuracy=NA, formatted_address=NA, address_type=NA, status=NA)
+  answer$status <- geo_reply$status
+  
+  # return Na's if we didn't get a match:
+  if (geo_reply$status != "OK"){
+    return(answer)
+  }   
+  
+  # else, extract what we need from the Google server reply into a dataframe:
+  answer$lat <- geo_reply$results[[1]]$geometry$location$lat
+  answer$long <- geo_reply$results[[1]]$geometry$location$lng   
+  
+  # if the reply contained the information we want
+  if (length(geo_reply$results[[1]]$types) > 0){
+    answer$accuracy <- geo_reply$results[[1]]$types[[1]]
+  }
+  
+  # paste together the answer
+  answer$address_type <- paste(geo_reply$results[[1]]$types, collapse=',')
+  answer$formatted_address <- geo_reply$results[[1]]$formatted_address
+  
+  return(answer)
+}
+```
+
+We can now use this within a larger function to work out the closest 3 tubes to 
+our requested addresses.
+
+
+```r
+## First load the igraph tube map
+tube.map <- readRDS("inst/extdata/tubemap.rds")
+
+## Quick view of the igraph object
+tube.map
+```
+
+```
+## IGRAPH DN-- 306 1546 -- 
+## + attr: name (v/c), latitude (v/n), longitude (v/n), name.clean
+## | (v/c), name.display (v/c), zone (v/n), dist (e/n), line.name
+## | (e/c), line.colour (e/c), line.stripe (e/c)
+## + edges (vertex names):
+##  [1] baker street    ->marylebone       baker street    ->marylebone      
+##  [3] baker street    ->regent's park    baker street    ->regent's park   
+##  [5] charing cross   ->embankment       charing cross   ->embankment      
+##  [7] charing cross   ->embankment       charing cross   ->embankment      
+##  [9] charing cross   ->picadilly circus charing cross   ->picadilly circus
+## [11] edgware road (b)->marylebone       edgware road (b)->paddington      
+## + ... omitted several edges
+```
+
+```r
+## From this object we can then query our lat/longs against the station
+
+## First let's get the lat/long for our addresses
+lat.long.starts <- lapply(res,function(x){return(get_geo_details(x$Location$Start))})
+lat.long.ends <- lapply(res,function(x){return(get_geo_details(x$Location$End))})
+
+## For now let's just keep the lat and long componenets in our res
+
+for(i in 1:length(res)){
+  
+  res[[i]]$Location$StartLat <- lat.long.starts[[i]]$lat
+  res[[i]]$Location$StartLong <- lat.long.starts[[i]]$long
+  res[[i]]$Location$EndLat <- lat.long.ends[[i]]$lat
+  res[[i]]$Location$EndLong <- lat.long.ends[[i]]$long
+  
+}
+
+
+## We will then need to create a function to take the lat.long.starts and ends
+## and find the nearest tube
+get_closest_tubes <- function(lat, long, tube.map, num.tubes){
+  
+# first create matrix of tube lat longs  
+tube.lat.long.mat <- cbind(get.vertex.attribute(tube.map,"latitude"),get.vertex.attribute(tube.map,"longitude"))
+
+# create vector of distances as crow flies
+distances <- sqrt(abs(tube.lat.long.mat[,1] - lat)^2 + abs(tube.lat.long.mat[,2] - long)^2)
+
+# find the cloesest number of tubes requested
+closests <- head(sort(distances),num.tubes)
+
+# return the name of the tube 
+return(get.vertex.attribute(tube.map,"name")[match(closests,distances)])
+
+}
+```
+
+We can now now use the function to find the closest 3 tubes for each user's start and end. (You
+may have also noticed that it makes good sense to probably move the tube.lat.long.mat outside the
+function but for the sake of clarity we'll leave it in.)
+
+
+```r
+# By simply looping over the function we can add the required tubes
+for(i in 1:length(res)){
+  
+  res[[i]]$StartTubes <- get_closest_tubes(lat = res[[i]]$Location$StartLat, 
+                                            long = res[[i]]$Location$StartLong,
+                                            tube.map = tube.map,
+                                            num.tubes = 3)
+  
+  res[[i]]$EndTubes <- get_closest_tubes(lat = res[[i]]$Location$EndLat,
+                                            long = res[[i]]$Location$EndLong,
+                                            tube.map = tube.map,
+                                            num.tubes = 3)
+  
+}
+
+## quick look at what we now have
+res
+```
+
+```
+## [[1]]
+## [[1]]$Location
+## [[1]]$Location$Start
+## [1] "W12 0RQ"
+## 
+## [[1]]$Location$End
+## [1] "SW16 5YR"
+## 
+## [[1]]$Location$StartLat
+## [1] 51.51309
+## 
+## [[1]]$Location$StartLong
+## [1] -0.2378431
+## 
+## [[1]]$Location$EndLat
+## [1] 51.41267
+## 
+## [[1]]$Location$EndLong
+## [1] -0.1455749
+## 
+## 
+## [[1]]$StartTubes
+## [1] "east acton"          "shepherd's bush (h)" "white city"         
+## 
+## [[1]]$EndTubes
+## [1] "tooting broadway" "tooting bec"      "balham"          
+## 
+## 
+## [[2]]
+## [[2]]$Location
+## [[2]]$Location$Start
+## [1] "NW1 7DB"
+## 
+## [[2]]$Location$End
+## [1] "E1 0AA"
+## 
+## [[2]]$Location$StartLat
+## [1] 51.5399
+## 
+## [[2]]$Location$StartLong
+## [1] -0.1468965
+## 
+## [[2]]$Location$EndLat
+## [1] 51.5125
+## 
+## [[2]]$Location$EndLong
+## [1] -0.0520979
+## 
+## 
+## [[2]]$StartTubes
+## [1] "camden town"         "chalk farm"          "mornington crescent"
+## 
+## [[2]]$EndTubes
+## [1] "shadwell"      "wapping"       "stepney green"
+## 
+## 
+## [[3]]
+## [[3]]$Location
+## [[3]]$Location$Start
+## [1] "SW11 1QN"
+## 
+## [[3]]$Location$End
+## [1] "SE17 1JE"
+## 
+## [[3]]$Location$StartLat
+## [1] 51.46274
+## 
+## [[3]]$Location$StartLong
+## [1] -0.1673713
+## 
+## [[3]]$Location$EndLat
+## [1] 51.48871
+## 
+## [[3]]$Location$EndLong
+## [1] -0.096354
+## 
+## 
+## [[3]]$StartTubes
+## [1] "clapham south" "balham"        "tooting bec"  
+## 
+## [[3]]$EndTubes
+## [1] "elephant & castle" "kennington"        "borough"
+```
+
+At this point we now know the closest geographical tubes, but we don't know the actual 
+walking distance to the tubes. This will ultimately be very important when trying to 
+find the optimum tube in later weeks. To address this we will now query the google
+maps API to find the walking distances for each person/tube combination.
+
+
+```r
+## function to add travel times to our results object thus far
+add_tube_distance_times <- function(res, API_KEY){
+
+# Loop over each person
+for(i in 1:length(res)){
+
+# First find the lat/long for the start and end origin, i.e. the user provided postcode lat/longs
+start.origin <- paste(res[[i]]$Location$StartLat,",",res[[i]]$Location$StartLong,sep="")
+end.origin <- paste(res[[i]]$Location$EndLat,",",res[[i]]$Location$EndLong,sep="")
+
+# Find which position in the tube.map the start and end tubes are
+tube.matches.start <- match(res[[i]]$StartTubes,get.vertex.attribute(tube.map,"name"))
+tube.matches.end <- match(res[[i]]$EndTubes,get.vertex.attribute(tube.map,"name"))
+
+# Fetch the lat/longs for these tubes
+start.destination.lats <- get.vertex.attribute(tube.map,"latitude")[tube.matches.start]
+start.destination.longs <- get.vertex.attribute(tube.map,"longitude")[tube.matches.start]
+end.destination.lats <- get.vertex.attribute(tube.map,"latitude")[tube.matches.end]
+end.destination.longs <- get.vertex.attribute(tube.map,"longitude")[tube.matches.end]
+
+# paste the lat/longs together ready for url_query creation
+start.destinations <- paste(start.destination.lats,start.destination.longs,sep=",",collapse="|")
+end.destinations <- paste(end.destination.lats,end.destination.longs,sep=",",collapse="|")
+
+# url query for start
+url.query.start <- paste0("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial",
+                    "&origins=",start.origin,
+                    "&destinations=",start.destinations,
+                    "&mode=walking",
+                    "&key=",API_KEY)
+
+# url query for end
+url.query.end <- paste0("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial",
+                    "&origins=",end.origin,
+                    "&destinations=",end.destinations,
+                    "&mode=walking",
+                    "&key=",API_KEY)
+
+# Now query google maps api distance matrix
+query.results.start <-jsonlite::fromJSON(url.query.start, simplifyDataFrame = FALSE)
+query.results.end <-jsonlite::fromJSON(url.query.end, simplifyDataFrame = FALSE)
+
+# Add the results
+res[[i]]$StartTubesDistanceTimes <- unlist(lapply(query.results.start$rows[[1]]$elements,function(x){return(x$duration$value)}))
+res[[i]]$EndTubesDistanceTimes <- unlist(lapply(query.results.end$rows[[1]]$elements,function(x){return(x$duration$value)}))
+
+}
+
+return(res)
+  
+}
+
+## So let's now use this to add the travel times
+res <- add_tube_distance_times(res,"AIzaSyAcqeRRuaTpG-YGhyCuw6ijv0QwCBBYw5c")
+
+## quickly view what the res object looks like now
+res
+```
+
+```
+## [[1]]
+## [[1]]$Location
+## [[1]]$Location$Start
+## [1] "W12 0RQ"
+## 
+## [[1]]$Location$End
+## [1] "SW16 5YR"
+## 
+## [[1]]$Location$StartLat
+## [1] 51.51309
+## 
+## [[1]]$Location$StartLong
+## [1] -0.2378431
+## 
+## [[1]]$Location$EndLat
+## [1] 51.41267
+## 
+## [[1]]$Location$EndLong
+## [1] -0.1455749
+## 
+## 
+## [[1]]$StartTubes
+## [1] "east acton"          "shepherd's bush (h)" "white city"         
+## 
+## [[1]]$EndTubes
+## [1] "tooting broadway" "tooting bec"      "balham"          
+## 
+## [[1]]$StartTubesDistanceTimes
+## [1]  803 1081 1050
+## 
+## [[1]]$EndTubesDistanceTimes
+## [1] 2469 2833 3134
+## 
+## 
+## [[2]]
+## [[2]]$Location
+## [[2]]$Location$Start
+## [1] "NW1 7DB"
+## 
+## [[2]]$Location$End
+## [1] "E1 0AA"
+## 
+## [[2]]$Location$StartLat
+## [1] 51.5399
+## 
+## [[2]]$Location$StartLong
+## [1] -0.1468965
+## 
+## [[2]]$Location$EndLat
+## [1] 51.5125
+## 
+## [[2]]$Location$EndLong
+## [1] -0.0520979
+## 
+## 
+## [[2]]$StartTubes
+## [1] "camden town"         "chalk farm"          "mornington crescent"
+## 
+## [[2]]$EndTubes
+## [1] "shadwell"      "wapping"       "stepney green"
+## 
+## [[2]]$StartTubesDistanceTimes
+## [1] 293 655 778
+## 
+## [[2]]$EndTubesDistanceTimes
+## [1]  556 1160 1174
+## 
+## 
+## [[3]]
+## [[3]]$Location
+## [[3]]$Location$Start
+## [1] "SW11 1QN"
+## 
+## [[3]]$Location$End
+## [1] "SE17 1JE"
+## 
+## [[3]]$Location$StartLat
+## [1] 51.46274
+## 
+## [[3]]$Location$StartLong
+## [1] -0.1673713
+## 
+## [[3]]$Location$EndLat
+## [1] 51.48871
+## 
+## [[3]]$Location$EndLong
+## [1] -0.096354
+## 
+## 
+## [[3]]$StartTubes
+## [1] "clapham south" "balham"        "tooting bec"  
+## 
+## [[3]]$EndTubes
+## [1] "elephant & castle" "kennington"        "borough"          
+## 
+## [[3]]$StartTubesDistanceTimes
+## [1] 1635 2124 2538
+## 
+## [[3]]$EndTubesDistanceTimes
+## [1]  676  599 1428
+```
+
+## 3. Storage and Extension
+
+The last section is shorter and more open ended for everyone to start thinking
+about how might be best to store data as citigrapher grows, and also how best 
+to improve on this section. 
+
+Firstly, at the moment the storage is a nested list object that was designed on the fly
+while writing this. Over the course of citigrapher we will possibly find that this
+is not the most useful storage format, especially if we want it to be cross programming
+platform. So we might want to start thinking about json storage as one example.
+
+
+```r
+## Json conversion and writing
+res_json <- jsonlite::toJSON(res)
+jsonlite::write_json(res_json,"inst/extdata/user_addresses_plus.json")
+```
+
+We also might want to instantly select the current user's location, to save them the
+hassle. There are a number of ways to do this, but one could be as simple as pinging 
+any number of find my location websites, e.g. https://mycurrentlocation.net/.  
+
+---
+
+## Summary
+
+Hopefully the above tutorial has shown a framework in R of how we can start working out 
+how long it will take a set of individuals to get to their nearest tubes. This will then form
+one section of a sum that will then workout each person's travel times to a particular tube
+stop. This total sum will then represent the "score" for a particular tube stop, and through
+a heuristic search method we can start to see how we can find optimum tubes. This will involve
+being more familiar with utilising networks, which will likely be the topic for next time.
