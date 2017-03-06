@@ -10,6 +10,6 @@ Each week a new problem will be posed and an R and Python tutorial written in ad
 
 The first meetup looked at using google maps api to query travel distances from user provided postcodes to the nearest 3 tube stations. Solutions to this problem are provided within the citigrapher1 directories within each language directory. The solutions can be broken down roughly into 3 parts:
 
-1. Ask the user for start and end postcodes for x number of people
-2. How to then find the nearest y tubes to these postcodes
+1. Ask the user for start and end postcodes for x number of people.
+2. How to then find the nearest y tubes to these postcodes.
 3. Using google distnace matrix API (https://developers.google.com/maps/documentation/distance-matrix/) to find out the walking travel time to these tubes.
