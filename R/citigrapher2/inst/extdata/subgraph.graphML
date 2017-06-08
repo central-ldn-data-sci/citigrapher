@@ -1,0 +1,3068 @@
+Creator "igraph version 1.0.1 Wed Jun 07 16:02:03 2017"
+Version 1
+graph
+[
+  directed 1
+  name "Full graph"
+  loops 0
+  node
+  [
+    id 0
+    name "east acton"
+    latitude 51.5168
+    longitude -0.2474
+    nameclean "East Acton"
+    namedisplay "East<br />Acton"
+    zone 2
+  ]
+  node
+  [
+    id 1
+    name "tooting broadway"
+    latitude 51.4275
+    longitude -0.168
+    nameclean "Tooting Broadway"
+    namedisplay "Tooting<br />Broadway"
+    zone 3
+  ]
+  node
+  [
+    id 2
+    name "shepherd's bush (h)"
+    latitude 51.5058
+    longitude -0.2265
+    nameclean "Shepherd's Bush (H)"
+    namedisplay "Shepherd's<br />Bush"
+    zone 2
+  ]
+  node
+  [
+    id 3
+    name "tooting bec"
+    latitude 51.4361
+    longitude -0.1598
+    nameclean "Tooting Bec"
+    namedisplay "Tooting<br />Bec"
+    zone 3
+  ]
+  node
+  [
+    id 4
+    name "white city"
+    latitude 51.512
+    longitude -0.2239
+    nameclean "White City"
+    namedisplay "White<br />City"
+    zone 2
+  ]
+  node
+  [
+    id 5
+    name "balham"
+    latitude 51.4431
+    longitude -0.1525
+    nameclean "Balham"
+    namedisplay "NULL"
+    zone 3
+  ]
+  node
+  [
+    id 6
+    name "camden town"
+    latitude 51.5392
+    longitude -0.1426
+    nameclean "Camden Town"
+    namedisplay "Camden<br />Town"
+    zone 2
+  ]
+  node
+  [
+    id 7
+    name "shadwell"
+    latitude 51.5117
+    longitude -0.056
+    nameclean "Shadwell"
+    namedisplay "NULL"
+    zone 2
+  ]
+  node
+  [
+    id 8
+    name "chalk farm"
+    latitude 51.5441
+    longitude -0.1538
+    nameclean "Chalk Farm"
+    namedisplay "Chalk<br />Farm"
+    zone 2
+  ]
+  node
+  [
+    id 9
+    name "wapping"
+    latitude 51.5043
+    longitude -0.0558
+    nameclean "Wapping"
+    namedisplay "NULL"
+    zone 2
+  ]
+  node
+  [
+    id 10
+    name "mornington crescent"
+    latitude 51.5342
+    longitude -0.1387
+    nameclean "Mornington Crescent"
+    namedisplay "Mornington<br />Crescent"
+    zone 2
+  ]
+  node
+  [
+    id 11
+    name "stepney green"
+    latitude 51.5221
+    longitude -0.047
+    nameclean "Stepney Green"
+    namedisplay "Stepney<br />Green"
+    zone 2
+  ]
+  node
+  [
+    id 12
+    name "clapham south"
+    latitude 51.4527
+    longitude -0.148
+    nameclean "Clapham South"
+    namedisplay "Clapham<br />South"
+    zone 2.5
+  ]
+  node
+  [
+    id 13
+    name "elephant & castle"
+    latitude 51.4943
+    longitude -0.1001
+    nameclean "Elephant & Castle"
+    namedisplay "Elephant &<br />Castle"
+    zone 1.5
+  ]
+  node
+  [
+    id 14
+    name "kennington"
+    latitude 51.4884
+    longitude -0.1053
+    nameclean "Kennington"
+    namedisplay "NULL"
+    zone 2
+  ]
+  node
+  [
+    id 15
+    name "borough"
+    latitude 51.5011
+    longitude -0.0943
+    nameclean "Borough"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 16
+    name "holland park"
+    latitude 51.5075
+    longitude -0.206
+    nameclean "Holland Park"
+    namedisplay "Holland<br />Park"
+    zone 2
+  ]
+  node
+  [
+    id 17
+    name "notting hill gate"
+    latitude 51.5094
+    longitude -0.1967
+    nameclean "Notting Hill Gate"
+    namedisplay "Notting<br />Hill Gate"
+    zone 1.5
+  ]
+  node
+  [
+    id 18
+    name "shepherd's bush (c)"
+    latitude 51.5046
+    longitude -0.2187
+    nameclean "Shepherd's Bush (C)"
+    namedisplay "Shepherd's<br />Bush"
+    zone 2
+  ]
+  node
+  [
+    id 19
+    name "gloucester road"
+    latitude 51.4945
+    longitude -0.1829
+    nameclean "Gloucester Road"
+    namedisplay "Gloucester<br />Road"
+    zone 1
+  ]
+  node
+  [
+    id 20
+    name "high street kensington"
+    latitude 51.5009
+    longitude -0.1925
+    nameclean "High Street Kensington"
+    namedisplay "High<br />Street<br />Kensington"
+    zone 1
+  ]
+  node
+  [
+    id 21
+    name "sloane square"
+    latitude 51.4924
+    longitude -0.1565
+    nameclean "Sloane Square"
+    namedisplay "Sloane<br />Square"
+    zone 1
+  ]
+  node
+  [
+    id 22
+    name "clapham common"
+    latitude 51.4618
+    longitude -0.1384
+    nameclean "Clapham Common"
+    namedisplay "Clapham<br />Common"
+    zone 2
+  ]
+  node
+  [
+    id 23
+    name "clapham north"
+    latitude 51.4649
+    longitude -0.1299
+    nameclean "Clapham North"
+    namedisplay "Clapham<br />North"
+    zone 2
+  ]
+  node
+  [
+    id 24
+    name "pimlico"
+    latitude 51.4893
+    longitude -0.1334
+    nameclean "Pimlico"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 25
+    name "stockwell"
+    latitude 51.4723
+    longitude -0.123
+    nameclean "Stockwell"
+    namedisplay "NULL"
+    zone 2
+  ]
+  node
+  [
+    id 26
+    name "south kensington"
+    latitude 51.4941
+    longitude -0.1738
+    nameclean "South Kensington"
+    namedisplay "South<br />Kensington"
+    zone 1
+  ]
+  node
+  [
+    id 27
+    name "victoria"
+    latitude 51.4965
+    longitude -0.1447
+    nameclean "Victoria"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 28
+    name "vauxhall"
+    latitude 51.4861
+    longitude -0.1253
+    nameclean "Vauxhall"
+    namedisplay "NULL"
+    zone 1.5
+  ]
+  node
+  [
+    id 29
+    name "ealing broadway"
+    latitude 51.5152
+    longitude -0.3017
+    nameclean "Ealing Broadway"
+    namedisplay "Ealing<br />Broadway"
+    zone 3
+  ]
+  node
+  [
+    id 30
+    name "north acton"
+    latitude 51.5237
+    longitude -0.2597
+    nameclean "North Acton"
+    namedisplay "North<br />Acton"
+    zone 2.5
+  ]
+  node
+  [
+    id 31
+    name "ealing common"
+    latitude 51.5101
+    longitude -0.2882
+    nameclean "Ealing Common"
+    namedisplay "Ealing<br />Common"
+    zone 3
+  ]
+  node
+  [
+    id 32
+    name "hammersmith"
+    latitude 51.4936
+    longitude -0.2251
+    nameclean "Hammersmith"
+    namedisplay "NULL"
+    zone 2
+  ]
+  node
+  [
+    id 33
+    name "goldhawk road"
+    latitude 51.5018
+    longitude -0.2267
+    nameclean "Goldhawk Road"
+    namedisplay "Goldhawk<br />Road"
+    zone 2
+  ]
+  node
+  [
+    id 34
+    name "acton town"
+    latitude 51.5028
+    longitude -0.2801
+    nameclean "Acton Town"
+    namedisplay "Acton<br />Town"
+    zone 3
+  ]
+  node
+  [
+    id 35
+    name "west acton"
+    latitude 51.518
+    longitude -0.2809
+    nameclean "West Acton"
+    namedisplay "West<br />Acton"
+    zone 3
+  ]
+  node
+  [
+    id 36
+    name "turnham green"
+    latitude 51.4951
+    longitude -0.2547
+    nameclean "Turnham Green"
+    namedisplay "Turnham<br />Green"
+    zone 2.5
+  ]
+  node
+  [
+    id 37
+    name "oxford circus"
+    latitude 51.515
+    longitude -0.1415
+    nameclean "Oxford Circus"
+    namedisplay "Oxford<br />Circus"
+    zone 1
+  ]
+  node
+  [
+    id 38
+    name "bond street"
+    latitude 51.5142
+    longitude -0.1494
+    nameclean "Bond Street"
+    namedisplay "Bond<br />Street"
+    zone 1
+  ]
+  node
+  [
+    id 39
+    name "lancaster gate"
+    latitude 51.5119
+    longitude -0.1756
+    nameclean "Lancaster Gate"
+    namedisplay "Lancaster<br />Gate"
+    zone 1
+  ]
+  node
+  [
+    id 40
+    name "euston"
+    latitude 51.5282
+    longitude -0.1337
+    nameclean "Euston"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 41
+    name "marble arch"
+    latitude 51.5136
+    longitude -0.1586
+    nameclean "Marble Arch"
+    namedisplay "Marble<br />Arch"
+    zone 1
+  ]
+  node
+  [
+    id 42
+    name "queensway"
+    latitude 51.5107
+    longitude -0.1877
+    nameclean "Queensway"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 43
+    name "warren street"
+    latitude 51.5247
+    longitude -0.1384
+    nameclean "Warren Street"
+    namedisplay "Warren<br />Street"
+    zone 1
+  ]
+  node
+  [
+    id 44
+    name "bank"
+    latitude 51.5133
+    longitude -0.0886
+    nameclean "Bank"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 45
+    name "chancery lane"
+    latitude 51.5185
+    longitude -0.1111
+    nameclean "Chancery Lane"
+    namedisplay "Chancery<br />Lane"
+    zone 1
+  ]
+  node
+  [
+    id 46
+    name "holborn"
+    latitude 51.5174
+    longitude -0.12
+    nameclean "Holborn"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 47
+    name "st. paul's"
+    latitude 51.5146
+    longitude -0.0973
+    nameclean "St. Paul's"
+    namedisplay "St. Paul's"
+    zone 1
+  ]
+  node
+  [
+    id 48
+    name "tottenham court road"
+    latitude 51.5165
+    longitude -0.131
+    nameclean "Tottenham Court Road"
+    namedisplay "Tottenham<br />Court<br />Road"
+    zone 1
+  ]
+  node
+  [
+    id 49
+    name "whitechapel"
+    latitude 51.5194
+    longitude -0.0612
+    nameclean "Whitechapel"
+    namedisplay "NULL"
+    zone 2
+  ]
+  node
+  [
+    id 50
+    name "lambeth north"
+    latitude 51.4991
+    longitude -0.1115
+    nameclean "Lambeth North"
+    namedisplay "Lambeth<br />North"
+    zone 1
+  ]
+  node
+  [
+    id 51
+    name "green park"
+    latitude 51.5067
+    longitude -0.1428
+    nameclean "Green Park"
+    namedisplay "Green<br />Park"
+    zone 1
+  ]
+  node
+  [
+    id 52
+    name "waterloo"
+    latitude 51.5036
+    longitude -0.1143
+    nameclean "Waterloo"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 53
+    name "westminster"
+    latitude 51.501
+    longitude -0.1254
+    nameclean "Westminster"
+    namedisplay "NULL"
+    zone 1
+  ]
+  node
+  [
+    id 54
+    name "london bridge"
+    latitude 51.5052
+    longitude -0.0864
+    nameclean "London Bridge"
+    namedisplay "London<br />Bridge"
+    zone 1
+  ]
+  node
+  [
+    id 55
+    name "southwark"
+    latitude 51.504
+    longitude -0.1052
+    nameclean "Southwark"
+    namedisplay "NULL"
+    zone 1
+  ]
+  edge
+  [
+    source 55
+    target 54
+    dist 1.77
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.77
+  ]
+  edge
+  [
+    source 55
+    target 54
+    dist 1.65
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.65
+  ]
+  edge
+  [
+    source 55
+    target 52
+    dist 0.97
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 0.97
+  ]
+  edge
+  [
+    source 55
+    target 52
+    dist 1.02
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.02
+  ]
+  edge
+  [
+    source 54
+    target 55
+    dist 1.77
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.77
+  ]
+  edge
+  [
+    source 54
+    target 55
+    dist 1.65
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.65
+  ]
+  edge
+  [
+    source 54
+    target 15
+    dist 1.4
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.4
+  ]
+  edge
+  [
+    source 54
+    target 15
+    dist 1.45
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.45
+  ]
+  edge
+  [
+    source 53
+    target 52
+    dist 1.43
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 53
+    target 52
+    dist 1.38
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.38
+  ]
+  edge
+  [
+    source 53
+    target 51
+    dist 1.87
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.87
+  ]
+  edge
+  [
+    source 53
+    target 51
+    dist 1.82
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 52
+    target 55
+    dist 1.02
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.02
+  ]
+  edge
+  [
+    source 52
+    target 55
+    dist 0.97
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 0.97
+  ]
+  edge
+  [
+    source 52
+    target 53
+    dist 1.38
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.38
+  ]
+  edge
+  [
+    source 52
+    target 53
+    dist 1.43
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 52
+    target 50
+    dist 1.45
+    linename "Bakerloo Line"
+    linecolour "#ab6612"
+    linestripe "NULL"
+    weight 1.45
+  ]
+  edge
+  [
+    source 52
+    target 14
+    dist 1.82
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 51
+    target 53
+    dist 1.87
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.87
+  ]
+  edge
+  [
+    source 51
+    target 53
+    dist 1.82
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 51
+    target 38
+    dist 1.78
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.78
+  ]
+  edge
+  [
+    source 51
+    target 38
+    dist 1.82
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 50
+    target 52
+    dist 1.45
+    linename "Bakerloo Line"
+    linecolour "#ab6612"
+    linestripe "NULL"
+    weight 1.45
+  ]
+  edge
+  [
+    source 50
+    target 13
+    dist 2.57
+    linename "Bakerloo Line"
+    linecolour "#ab6612"
+    linestripe "NULL"
+    weight 2.57
+  ]
+  edge
+  [
+    source 50
+    target 13
+    dist 2.13
+    linename "Bakerloo Line"
+    linecolour "#ab6612"
+    linestripe "NULL"
+    weight 2.13
+  ]
+  edge
+  [
+    source 49
+    target 11
+    dist 2.05
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.05
+  ]
+  edge
+  [
+    source 49
+    target 11
+    dist 2.63
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.63
+  ]
+  edge
+  [
+    source 49
+    target 11
+    dist 2.05
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2.05
+  ]
+  edge
+  [
+    source 49
+    target 11
+    dist 2.63
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2.63
+  ]
+  edge
+  [
+    source 49
+    target 7
+    dist 1.98
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.98
+  ]
+  edge
+  [
+    source 49
+    target 7
+    dist 1.82
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 48
+    target 46
+    dist 1.63
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.63
+  ]
+  edge
+  [
+    source 48
+    target 46
+    dist 1.38
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.38
+  ]
+  edge
+  [
+    source 48
+    target 37
+    dist 0.98
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 0.98
+  ]
+  edge
+  [
+    source 48
+    target 37
+    dist 1.02
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.02
+  ]
+  edge
+  [
+    source 47
+    target 45
+    dist 1.52
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.52
+  ]
+  edge
+  [
+    source 47
+    target 44
+    dist 1.63
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.63
+  ]
+  edge
+  [
+    source 47
+    target 44
+    dist 1.62
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.62
+  ]
+  edge
+  [
+    source 46
+    target 48
+    dist 1.63
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.63
+  ]
+  edge
+  [
+    source 46
+    target 48
+    dist 1.38
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.38
+  ]
+  edge
+  [
+    source 46
+    target 45
+    dist 0.87
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 0.87
+  ]
+  edge
+  [
+    source 46
+    target 45
+    dist 0.85
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 0.85
+  ]
+  edge
+  [
+    source 45
+    target 47
+    dist 1.52
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.52
+  ]
+  edge
+  [
+    source 45
+    target 46
+    dist 0.87
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 0.87
+  ]
+  edge
+  [
+    source 45
+    target 46
+    dist 0.85
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 0.85
+  ]
+  edge
+  [
+    source 44
+    target 47
+    dist 1.63
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.63
+  ]
+  edge
+  [
+    source 44
+    target 47
+    dist 1.62
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.62
+  ]
+  edge
+  [
+    source 44
+    target 7
+    dist 2.38
+    linename "Docklands Light Railway"
+    linecolour "#00A77E"
+    linestripe "#FFFFFF"
+    weight 2.38
+  ]
+  edge
+  [
+    source 43
+    target 40
+    dist 1.3
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.3
+  ]
+  edge
+  [
+    source 43
+    target 40
+    dist 1.32
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.32
+  ]
+  edge
+  [
+    source 43
+    target 40
+    dist 1.3
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.3
+  ]
+  edge
+  [
+    source 43
+    target 40
+    dist 1.32
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.32
+  ]
+  edge
+  [
+    source 43
+    target 37
+    dist 1.72
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 43
+    target 37
+    dist 1.53
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.53
+  ]
+  edge
+  [
+    source 42
+    target 39
+    dist 1.35
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.35
+  ]
+  edge
+  [
+    source 42
+    target 39
+    dist 1.65
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.65
+  ]
+  edge
+  [
+    source 42
+    target 17
+    dist 1.17
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.17
+  ]
+  edge
+  [
+    source 42
+    target 17
+    dist 1.18
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.18
+  ]
+  edge
+  [
+    source 41
+    target 39
+    dist 1.92
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.92
+  ]
+  edge
+  [
+    source 41
+    target 39
+    dist 1.62
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.62
+  ]
+  edge
+  [
+    source 41
+    target 38
+    dist 1
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1
+  ]
+  edge
+  [
+    source 41
+    target 38
+    dist 1.02
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.02
+  ]
+  edge
+  [
+    source 40
+    target 43
+    dist 1.3
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.3
+  ]
+  edge
+  [
+    source 40
+    target 43
+    dist 1.3
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.3
+  ]
+  edge
+  [
+    source 40
+    target 43
+    dist 1.32
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.32
+  ]
+  edge
+  [
+    source 40
+    target 43
+    dist 1.32
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.32
+  ]
+  edge
+  [
+    source 40
+    target 10
+    dist 1.82
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 40
+    target 6
+    dist 1.82
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 39
+    target 42
+    dist 1.65
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.65
+  ]
+  edge
+  [
+    source 39
+    target 42
+    dist 1.35
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.35
+  ]
+  edge
+  [
+    source 39
+    target 41
+    dist 1.62
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.62
+  ]
+  edge
+  [
+    source 39
+    target 41
+    dist 1.92
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.92
+  ]
+  edge
+  [
+    source 38
+    target 51
+    dist 1.82
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 38
+    target 51
+    dist 1.78
+    linename "Jubilee Line"
+    linecolour "#767b7f"
+    linestripe "NULL"
+    weight 1.78
+  ]
+  edge
+  [
+    source 38
+    target 41
+    dist 1.02
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.02
+  ]
+  edge
+  [
+    source 38
+    target 41
+    dist 1
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1
+  ]
+  edge
+  [
+    source 38
+    target 37
+    dist 1.1
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.1
+  ]
+  edge
+  [
+    source 38
+    target 37
+    dist 1.03
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.03
+  ]
+  edge
+  [
+    source 37
+    target 48
+    dist 0.98
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 0.98
+  ]
+  edge
+  [
+    source 37
+    target 48
+    dist 1.02
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.02
+  ]
+  edge
+  [
+    source 37
+    target 43
+    dist 1.72
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 37
+    target 43
+    dist 1.53
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.53
+  ]
+  edge
+  [
+    source 37
+    target 38
+    dist 1.1
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.1
+  ]
+  edge
+  [
+    source 37
+    target 38
+    dist 1.03
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.03
+  ]
+  edge
+  [
+    source 36
+    target 34
+    dist 1.82
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 36
+    target 32
+    dist 1.82
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 35
+    target 30
+    dist 2.52
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.52
+  ]
+  edge
+  [
+    source 35
+    target 30
+    dist 2.3
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.3
+  ]
+  edge
+  [
+    source 35
+    target 29
+    dist 2.28
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.28
+  ]
+  edge
+  [
+    source 35
+    target 29
+    dist 3.07
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 3.07
+  ]
+  edge
+  [
+    source 34
+    target 36
+    dist 1.82
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.83
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.83
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.5
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.5
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.83
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.83
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.72
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.5
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.5
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.72
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.9
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.9
+  ]
+  edge
+  [
+    source 34
+    target 31
+    dist 1.9
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.9
+  ]
+  edge
+  [
+    source 33
+    target 32
+    dist 2.43
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.43
+  ]
+  edge
+  [
+    source 33
+    target 32
+    dist 2.05
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.05
+  ]
+  edge
+  [
+    source 33
+    target 2
+    dist 1.82
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 32
+    target 36
+    dist 1.82
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 32
+    target 33
+    dist 2.43
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.43
+  ]
+  edge
+  [
+    source 32
+    target 33
+    dist 2.05
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.05
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.5
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.5
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.72
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.5
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.5
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.72
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.83
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.83
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.9
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.9
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.9
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.9
+  ]
+  edge
+  [
+    source 31
+    target 34
+    dist 1.83
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.83
+  ]
+  edge
+  [
+    source 31
+    target 29
+    dist 3.5
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 3.5
+  ]
+  edge
+  [
+    source 31
+    target 29
+    dist 2.67
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2.67
+  ]
+  edge
+  [
+    source 30
+    target 35
+    dist 2.3
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.3
+  ]
+  edge
+  [
+    source 30
+    target 35
+    dist 2.52
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.52
+  ]
+  edge
+  [
+    source 30
+    target 0
+    dist 1.5
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.5
+  ]
+  edge
+  [
+    source 30
+    target 0
+    dist 1.57
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.57
+  ]
+  edge
+  [
+    source 29
+    target 35
+    dist 2.28
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.28
+  ]
+  edge
+  [
+    source 29
+    target 35
+    dist 3.07
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 3.07
+  ]
+  edge
+  [
+    source 29
+    target 31
+    dist 3.5
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 3.5
+  ]
+  edge
+  [
+    source 29
+    target 31
+    dist 2.67
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2.67
+  ]
+  edge
+  [
+    source 28
+    target 25
+    dist 2.3
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 2.3
+  ]
+  edge
+  [
+    source 28
+    target 25
+    dist 2.23
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 2.23
+  ]
+  edge
+  [
+    source 28
+    target 24
+    dist 1.37
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 28
+    target 24
+    dist 1.4
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.4
+  ]
+  edge
+  [
+    source 27
+    target 24
+    dist 2.18
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 2.18
+  ]
+  edge
+  [
+    source 27
+    target 24
+    dist 1.83
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.83
+  ]
+  edge
+  [
+    source 27
+    target 21
+    dist 1.8
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 27
+    target 21
+    dist 1.75
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.75
+  ]
+  edge
+  [
+    source 27
+    target 21
+    dist 1.8
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 27
+    target 21
+    dist 1.75
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.75
+  ]
+  edge
+  [
+    source 26
+    target 21
+    dist 2
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2
+  ]
+  edge
+  [
+    source 26
+    target 21
+    dist 1.98
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.98
+  ]
+  edge
+  [
+    source 26
+    target 21
+    dist 1.98
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.98
+  ]
+  edge
+  [
+    source 26
+    target 21
+    dist 2
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 2
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.37
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.37
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.43
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.37
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.48
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.48
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.28
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.28
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.28
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.28
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.43
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.48
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.48
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.48
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.48
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.43
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 26
+    target 19
+    dist 1.28
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.28
+  ]
+  edge
+  [
+    source 25
+    target 28
+    dist 2.3
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 2.3
+  ]
+  edge
+  [
+    source 25
+    target 28
+    dist 2.23
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 2.23
+  ]
+  edge
+  [
+    source 25
+    target 23
+    dist 1.55
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.55
+  ]
+  edge
+  [
+    source 25
+    target 23
+    dist 1.72
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 24
+    target 28
+    dist 1.37
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 24
+    target 28
+    dist 1.4
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.4
+  ]
+  edge
+  [
+    source 24
+    target 27
+    dist 1.83
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 1.83
+  ]
+  edge
+  [
+    source 24
+    target 27
+    dist 2.18
+    linename "Victoria Line"
+    linecolour "#0076bd"
+    linestripe "NULL"
+    weight 2.18
+  ]
+  edge
+  [
+    source 23
+    target 25
+    dist 1.72
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.72
+  ]
+  edge
+  [
+    source 23
+    target 25
+    dist 1.55
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.55
+  ]
+  edge
+  [
+    source 23
+    target 22
+    dist 1.32
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.32
+  ]
+  edge
+  [
+    source 23
+    target 22
+    dist 1.4
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.4
+  ]
+  edge
+  [
+    source 22
+    target 23
+    dist 1.4
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.4
+  ]
+  edge
+  [
+    source 22
+    target 23
+    dist 1.32
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.32
+  ]
+  edge
+  [
+    source 22
+    target 12
+    dist 2
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 2
+  ]
+  edge
+  [
+    source 22
+    target 12
+    dist 2.2
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 2.2
+  ]
+  edge
+  [
+    source 21
+    target 27
+    dist 1.8
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 21
+    target 27
+    dist 1.8
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 21
+    target 27
+    dist 1.75
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.75
+  ]
+  edge
+  [
+    source 21
+    target 27
+    dist 1.75
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.75
+  ]
+  edge
+  [
+    source 21
+    target 26
+    dist 2
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 2
+  ]
+  edge
+  [
+    source 21
+    target 26
+    dist 2
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2
+  ]
+  edge
+  [
+    source 21
+    target 26
+    dist 1.98
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.98
+  ]
+  edge
+  [
+    source 21
+    target 26
+    dist 1.98
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.98
+  ]
+  edge
+  [
+    source 20
+    target 19
+    dist 2.23
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 2.23
+  ]
+  edge
+  [
+    source 20
+    target 19
+    dist 1.8
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 20
+    target 17
+    dist 1.58
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.58
+  ]
+  edge
+  [
+    source 20
+    target 17
+    dist 1.68
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.68
+  ]
+  edge
+  [
+    source 20
+    target 17
+    dist 1.58
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.58
+  ]
+  edge
+  [
+    source 20
+    target 17
+    dist 1.68
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.68
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.48
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.48
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.48
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.48
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.43
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.37
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.37
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.43
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.28
+    linename "Piccadilly Line"
+    linecolour "#002d73"
+    linestripe "NULL"
+    weight 1.28
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.37
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.37
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.28
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.28
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.48
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.48
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.43
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 19
+    target 26
+    dist 1.28
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.28
+  ]
+  edge
+  [
+    source 19
+    target 20
+    dist 1.8
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 19
+    target 20
+    dist 2.23
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 2.23
+  ]
+  edge
+  [
+    source 18
+    target 16
+    dist 1.82
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 18
+    target 4
+    dist 1.82
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 17
+    target 42
+    dist 1.17
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.17
+  ]
+  edge
+  [
+    source 17
+    target 42
+    dist 1.18
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.18
+  ]
+  edge
+  [
+    source 17
+    target 20
+    dist 1.68
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.68
+  ]
+  edge
+  [
+    source 17
+    target 20
+    dist 1.68
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.68
+  ]
+  edge
+  [
+    source 17
+    target 20
+    dist 1.58
+    linename "Circle Line"
+    linecolour "#f7dc00"
+    linestripe "NULL"
+    weight 1.58
+  ]
+  edge
+  [
+    source 17
+    target 20
+    dist 1.58
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 1.58
+  ]
+  edge
+  [
+    source 17
+    target 16
+    dist 1.08
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.08
+  ]
+  edge
+  [
+    source 17
+    target 16
+    dist 1.18
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.18
+  ]
+  edge
+  [
+    source 16
+    target 18
+    dist 1.82
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 16
+    target 17
+    dist 1.08
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.08
+  ]
+  edge
+  [
+    source 16
+    target 17
+    dist 1.18
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.18
+  ]
+  edge
+  [
+    source 15
+    target 54
+    dist 1.4
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.4
+  ]
+  edge
+  [
+    source 15
+    target 54
+    dist 1.45
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.45
+  ]
+  edge
+  [
+    source 14
+    target 52
+    dist 1.82
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 13
+    target 50
+    dist 2.57
+    linename "Bakerloo Line"
+    linecolour "#ab6612"
+    linestripe "NULL"
+    weight 2.57
+  ]
+  edge
+  [
+    source 13
+    target 50
+    dist 2.13
+    linename "Bakerloo Line"
+    linecolour "#ab6612"
+    linestripe "NULL"
+    weight 2.13
+  ]
+  edge
+  [
+    source 12
+    target 22
+    dist 2.2
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 2.2
+  ]
+  edge
+  [
+    source 12
+    target 22
+    dist 2
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 2
+  ]
+  edge
+  [
+    source 12
+    target 5
+    dist 1.88
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.88
+  ]
+  edge
+  [
+    source 12
+    target 5
+    dist 1.8
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 11
+    target 49
+    dist 2.05
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.05
+  ]
+  edge
+  [
+    source 11
+    target 49
+    dist 2.05
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2.05
+  ]
+  edge
+  [
+    source 11
+    target 49
+    dist 2.63
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 2.63
+  ]
+  edge
+  [
+    source 11
+    target 49
+    dist 2.63
+    linename "District Line"
+    linecolour "#0d6928"
+    linestripe "NULL"
+    weight 2.63
+  ]
+  edge
+  [
+    source 10
+    target 40
+    dist 1.82
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 9
+    target 7
+    dist 1.43
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 9
+    target 7
+    dist 1.3
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.3
+  ]
+  edge
+  [
+    source 8
+    target 6
+    dist 1.53
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.53
+  ]
+  edge
+  [
+    source 8
+    target 6
+    dist 1.55
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.55
+  ]
+  edge
+  [
+    source 7
+    target 49
+    dist 1.98
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.98
+  ]
+  edge
+  [
+    source 7
+    target 49
+    dist 1.82
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 7
+    target 44
+    dist 2.38
+    linename "Docklands Light Railway"
+    linecolour "#00A77E"
+    linestripe "#FFFFFF"
+    weight 2.38
+  ]
+  edge
+  [
+    source 7
+    target 9
+    dist 1.43
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.43
+  ]
+  edge
+  [
+    source 7
+    target 9
+    dist 1.3
+    linename "East London Line"
+    linecolour "#f3ba22"
+    linestripe "NULL"
+    weight 1.3
+  ]
+  edge
+  [
+    source 6
+    target 40
+    dist 1.82
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 6
+    target 8
+    dist 1.53
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.53
+  ]
+  edge
+  [
+    source 6
+    target 8
+    dist 1.55
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.55
+  ]
+  edge
+  [
+    source 5
+    target 12
+    dist 1.8
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.8
+  ]
+  edge
+  [
+    source 5
+    target 12
+    dist 1.88
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.88
+  ]
+  edge
+  [
+    source 5
+    target 3
+    dist 1.67
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.67
+  ]
+  edge
+  [
+    source 5
+    target 3
+    dist 1.65
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.65
+  ]
+  edge
+  [
+    source 4
+    target 18
+    dist 1.82
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 4
+    target 0
+    dist 2.57
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.57
+  ]
+  edge
+  [
+    source 4
+    target 0
+    dist 2.67
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.67
+  ]
+  edge
+  [
+    source 3
+    target 5
+    dist 1.67
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.67
+  ]
+  edge
+  [
+    source 3
+    target 5
+    dist 1.65
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.65
+  ]
+  edge
+  [
+    source 3
+    target 1
+    dist 1.77
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.77
+  ]
+  edge
+  [
+    source 3
+    target 1
+    dist 1.88
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.88
+  ]
+  edge
+  [
+    source 2
+    target 33
+    dist 1.82
+    linename "Hammersmith & City Line"
+    linecolour "#f5a6b3"
+    linestripe "NULL"
+    weight 1.82
+  ]
+  edge
+  [
+    source 1
+    target 3
+    dist 1.77
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.77
+  ]
+  edge
+  [
+    source 1
+    target 3
+    dist 1.88
+    linename "Northern Line"
+    linecolour "#000000"
+    linestripe "NULL"
+    weight 1.88
+  ]
+  edge
+  [
+    source 0
+    target 30
+    dist 1.57
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.57
+  ]
+  edge
+  [
+    source 0
+    target 30
+    dist 1.5
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 1.5
+  ]
+  edge
+  [
+    source 0
+    target 4
+    dist 2.67
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.67
+  ]
+  edge
+  [
+    source 0
+    target 4
+    dist 2.57
+    linename "Central Line"
+    linecolour "#df002c"
+    linestripe "NULL"
+    weight 2.57
+  ]
+]

@@ -1,0 +1,419 @@
+---
+title: "Citigrapher #2: Navigating the London tube network"
+author: "OJ Watson"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+  toc: yes
+css: knitr.css
+code_folding: show
+fig_caption: yes
+theme: readable
+keep_md: yes
+toc_float: yes
+
+---
+  
+## Overview
+  
+1. Data from Citygrapher 1 
+2. Minimum Spanning Trees and Steiner Trees
+3. Storage & Extension
+
+Citigrapher is a tool that will help choose an optimum destination for a group of
+users based on what activity they want to do, and where they all live and work. 
+The optimum destination is thus one that has a good option of activites, such as
+restaurants, pubs, music venues, museums etc, and ensure that the travel time for
+everyone is equally spread, so that no one feels left out. 
+
+In this chapter, these 3 parts will pick up from the last session where we used
+Google maps APIs to find the nearest 3 tubes to a list of user requested postcodes. 
+These postcodes represented where our users were starting and ending their day, 
+and tus the travel time to these tubes was stored so we know to include this when 
+working out the travel time for each user when we have decided on a potential optimum 
+tube stop. 
+
+We will then use these tubes to create a sub section of the London tube network 
+that connects all our users, and thus must contain the optimum tube. This sub-network
+can then be searched (in the next Citigrapher section) to find out each user's travel
+time for each tube stop in this network to create a ranked list of tube stops, which
+can then be used to query for a venue.
+
+## 1. Data from Citygrapher 1 
+
+In this meetup we will be using the R package *igraph* to find the section of the
+London tube network that connects all our users. To begin with we will load the 
+required package and then read in our saved data from last time
+
+The first thing we need to do is load the data from last time. This data has been 
+saved within the inst/extdata folder as *"tubes.rds"*. For those who have not seen 
+a *".rds"* file type before, it is simply a saved R object and can be read in as
+follows:
+
+```{r Load saved tube data, include=TRUE, message = FALSE, warning = FALSE}
+
+## first let's install the necessary packages
+install.packages("igraph",repos = "https://cloud.r-project.org/")
+require(igraph)
+
+## Read in the saved tube data
+tubes  <- readRDS("inst/extdata/tubes.rds")
+
+```
+
+The tubes R object is a list of lists with a length of 3, which contains information 
+relating to our 3 users. Each internal list shows the start and end location for
+user as both their postcode, which they provided, and theit latitidue and longitude,
+which we looked up last time. It also then shows the closest 3 tubes to these locations
+and the  walking travel time in seconds. Let's have a look at this data again to
+refamiliarise ourselves. 
+
+```{r View saved tube data, include=TRUE, message = FALSE, warning = FALSE}
+
+## View the saved tube data
+str(tubes)
+
+```
+
+## 2. Minimum Spanning Trees and Steiner Trees
+
+In this section we will be using the R package *igraph* to find the section of the
+London tube network that connects all our users. First we will read in the london tube network.
+
+```{r Reading london tube map, include=TRUE, message = FALSE, warning = FALSE}
+
+## Now let's read in the tube map and call it object g for graph
+g <- readRDS("inst/extdata/tubemap.rds")
+
+## And let's have a look at what type of R object the tube map is
+g
+```
+
+The tube map is an igraph class object. An igraph object contains information, known
+as attriutes, relating to the *vertices* (tube stops) and the *edges* (tube lines) within
+the tube map, and which edges connect which vertices. So we can see for this graph
+object we now the *latitude*, *longitude*, *name* and *zone* of the tube stops, and then 
+also the distance, line *name*, *colour* and *stripe colour* of the tube lines. We also
+have an attribute called *weight* that is the same as dist. 
+
+The *igraph* package allows us to plot the tube map so we can see what we're looking at.
+For those who have not seen the use of "::" before, this simply shows that the fucntion
+after the "::" is within the namespace of the package listed before the "::". I tend
+to include these as it makes it clearer where the function is coming from. You can, however,
+use it without if the package is loaded, which it is due to *require(igraph)* and thus
+*plot(g)* would also work with the correct plotting function being used based on the class
+of the object g. 
+
+```{r Plot tube map, include=TRUE, message = FALSE, warning = FALSE, cache=TRUE}
+
+## First plot the tube map as it is
+igraph::plot.igraph(g)
+
+## Now let's plot the tube map specifying some plotting variables
+igraph::plot.igraph(g,layout=as.matrix(cbind(V(g)$longitude,V(g)$latitude)),
+                        vertex.label=NA,vertex.label.cex=0,vertex.size=0,
+                        edge.color=E(g)$line.colour,edge.arrow.width=0,edge.curved=FALSE,
+                        rescale=FALSE,
+                        xlim=c(min(V(g)$longitude),max(V(g)$longitude)),
+                        ylim=c(min(V(g)$latitude),max(V(g)$latitude)))
+
+```
+
+We can see in the first plot that it's not very clear. This is because the plot function
+simply plots the connects with an equal length and then optimises the layout. The
+second plotting function fixes the vertices in terms of the longitude and latitude,
+before colouring the edges by the tube line, and then scales it so it all fits within
+the plotting window. (Otherwise it would try to fit everything in a [-1,1] square,
+whereas our latitude in London is ~50)
+
+Now we will want to create a Steiner Tree. There are many types of steiner tree, 
+but paraphrasing it is how a group of vertices within the graph interconnect in 
+some optimal way. For example, given our list of tubes a steiner tree would be the 
+set of tube lnes that connect all these tubes in the shortest distance. For the purposes
+of today, however, we will be creating a list of connections between the tube stops listed 
+within the tubes object using our tube map graph, but we will not be optimising their 
+connection. This is partly because this a difficult combinatorial optimisation problem
+and because ultimately we are trying to eventually find a few tube stops that connect all
+our tubes, which is a slightly different problem.
+
+To do this we will follow the first 3 of 5 steps of Kou's algorithm to creating a Steiner
+Tree, the last 2 of which involve the optimisation and thus we ignore. If anyone is
+interested the paper where this was introduced can be found [here] (https://www.researchgate.net/publication/227056882_A_Fast_Algorithm_for_Steiner_Trees), which
+combined with the wikipedia page for Steiner trees gives plenty of overview. 
+
+To begin with we will want to create a new graph that connects all our tube stops.
+
+```{r Complete Distance Graph, include=TRUE, message = FALSE, warning = FALSE, cache=TRUE}
+
+## First let's extract all the tubes from our tubes object
+# N.B. the %>% is contained within teh igraph package, and is simply exported
+# from the magrittr package where it is found. It simply allows us to pass the
+# the output from the LHS to be the input of the RHS
+
+all_tubes <- lapply(tubes,function(x){
+  return((rbind(x$StartTubes,x$EndTubes)))
+}) %>% unlist %>% unique
+
+## Next let's create a new graph that connects all our tubes and call it gi
+gi <- igraph::graph.full(length(all_tubes),directed = TRUE)
+
+## What does this look like
+igraph::plot.igraph(gi)
+
+## Let's now label the graph vertices with our tube names
+igraph::V(gi)$name <- all_tubes
+
+## And plot again
+igraph::plot.igraph(gi)
+```
+
+What we have done above is create a graph that connects all the certices to 
+each other. The graph we have created is directed, which means that going from
+A to B is different from B to A, which is important as some tube travel times 
+are (apparantly accroding to tfl) different each way. We have then labelled them
+with the tube names, using *V(gi)$name*, which selects all the vertices with 
+*V(gi)* ad then assigns a new attribute called *name*. The function *E()* does the
+same for edges. These function are used a lots below and as such I have not used the "::".
+
+Next we will create from that a minimum spanning tree (mst), which is the shortest
+way of connecting all the vertices given the edges, and then collect the edges within
+this.
+
+```{r mst, include=TRUE, message = FALSE, warning = FALSE, cache=TRUE}
+
+## Create the mst
+mst <- igraph::minimum.spanning.tree(gi)
+
+## What does this look like
+igraph::plot.igraph(mst)
+
+##  Let's now grapb teh list of edges within the mst
+edge_list <- igraph::get.edgelist(mst)
+
+## quickly view what the edge_list object looks like now
+head(edge_list)
+```
+
+The next step is the longest, and seeks to replace each of the edges in the mst
+with the shortest path that connects these edges within the actual tube map. To 
+do this we will loop over the edge list, search if there is a connection between
+them (which there always will be as the tube map is fully connected), and then
+look up the shortest path between them. Then we will replace the edge within the
+mst with this shortest path to produce the sub network we are looking for.
+
+```{r Pseudo-Steiner Creation, message=FALSE, warning=FALSE, cache=TRUE, include=TRUE}
+
+## First create a copy of the mst
+gs <- mst
+
+## Loop through the edge list
+for (n in 1:nrow(edge_list)) {
+  
+  ## What is the from (i) and to (j) from the nth row in the edge list
+  i <- edge_list[n, 2]
+  j <- edge_list[n, 1]
+  
+  ## Check that the edge from i to j is in fact within the tube map (always
+  ## will be)
+  if (length(igraph::E(gi)[which(V(mst)$name == i) %--% which(V(mst)$name == j)]) > 0) {
+    
+    ## If edge is present then remove existing edge from the minimum spanning
+    ## tree copy:
+    gs <- gs - E(gs)[which(V(mst)$name == i) %--% which(V(mst)$name == j)]
+    
+    ## Next extract the route, known as a subgraph, from g that corresponds to
+    ## the shortest path
+    
+    shortest_path <- igraph::get.shortest.paths(g, from = V(g)[i], to = V(g)[j])
+    
+    g_sub <- igraph::induced.subgraph(g, shortest_path$vpath[[1]])
+    
+    ## Now join this subgraoh with our mst copy, thereby replacing the oringinal
+    ## connection:
+    gs <- igraph::union(gs, g_sub, byname = T)
+    
+    
+    ## The following is for tidying up. In short, when we union two graphs we
+    ## also copy the attributes across. If they have the same name then they are
+    ## turned into attribute_1 and attribute_2. Every time, however, that we do
+    ## this we eventually lose information about the attributes as they get
+    ## overwritten. The following simply takes attribute_1 and attribute_2 and
+    ## combines them to create teh required attribute and asssigns it to gs.
+    
+    ## concatenate duplicate attributes as they appear
+    if (n > 1) {
+      
+      ## create the list of edge attributes and what the unreplicated versions are
+      edge.ats <- list.edge.attributes(gs)
+      edge.at.names <- lapply(strsplit(list.edge.attributes(gs), split = "_"), 
+        function(x) {
+          return(x[[1]])
+        }) %>% unlist %>% unique()
+      
+      ## do the same for vertex attributes, but remembering to remove name as this
+      ## is never duplicated
+      vert.ats <- list.vertex.attributes(gs)
+      vert.at.names <- lapply(strsplit(list.vertex.attributes(gs), split = "_"), 
+        function(x) {
+          return(x[[1]])
+        }) %>% unlist %>% unique()
+      vert.at.names <- vert.at.names[-which(vert.at.names == "name")]
+      
+      ## loop through duplicated attributes, combine them and then assign them to
+      ## the graph
+      for (e in edge.at.names) {
+        attrs <- edge.attributes(gs)[grep(e, edge.ats)]
+        mat <- cbind(attrs[[1]], attrs[[2]])
+        gs <- set.edge.attribute(gs, e, value = apply(mat, MARGIN = 1, 
+          function(x) {
+          return(ifelse(length(na.omit(x)) == 0, yes = NA, no = na.omit(x)))
+          }))
+      }
+      
+      for (v in vert.at.names) {
+        attrs <- vertex.attributes(gs)[grep(v, vert.ats)]
+        mat <- cbind(attrs[[1]], attrs[[2]])
+        gs <- set.vertex.attribute(gs, v, value = apply(mat, MARGIN = 1, 
+          function(x) {
+          return(ifelse(length(na.omit(x)) == 0, yes = NA, no = na.omit(x)))
+          }))
+      }
+      
+    }
+    
+  }
+  
+  ## Lastly remove the duplicates from the last iteration
+  gs.vat.names <- list.vertex.attributes(gs)
+  to.remove <- gs.vat.names[grep(pattern = "_", gs.vat.names)]
+  for (i in to.remove) {
+    gs <- igraph::delete_vertex_attr(gs, i)
+  }
+  
+  gs.edge.names <- list.edge.attributes(gs)
+  to.remove <- gs.edge.names[grep(pattern = "_", gs.edge.names)]
+  for (i in to.remove) {
+    gs <- igraph::delete_edge_attr(gs, i)
+  }
+  
+  
+}
+
+
+```
+
+The above will now have produced a subgraph that connects all our tubes in a way
+that does not include too many unnecessary other tube stops. Let's have a look at that.
+
+
+```{r Plot pseudo-steiner, include=TRUE, message = FALSE, warning = FALSE, cache=TRUE}
+
+## set up initial plot as 2 rows with no margins
+par(mfrow=c(2,1))
+par(mai=c(0,0,0,0))
+
+## Plot original mst
+igraph::plot.igraph(mst)
+
+## Plot new subgraph with some graphical parameters
+igraph::plot.igraph(gs,layout=as.matrix(cbind(V(gs)$longitude,V(gs)$latitude)),
+     vertex.label.cex=0.6,edge.arrow.size=0.25,rescale=FALSE,
+     xlim=c(min(V(gs)$longitude)*0.9998,max(V(gs)$longitude)*1.0002),
+     ylim=c(min(V(gs)$latitude)*0.9998,max(V(gs)$latitude)*1.0002),
+     edge.curved=FALSE,edge.arrow.width=0,vertex.size=0.1)
+
+```
+
+Now we can have a look to see how this relates to our original tube stop locations,
+to give some piece of mind that it actually looks sensible.
+
+```{r Plot pseudo-steiner-again, include=TRUE, message = FALSE, warning = FALSE, cache=TRUE}
+## Plot new subgraph with some graphical parameters again
+igraph::plot.igraph(gs, layout = as.matrix(cbind(V(gs)$longitude, V(gs)$latitude)), 
+    vertex.label.cex = 0.6, edge.arrow.size = 0.25, rescale = FALSE, 
+    xlim = c(min(V(gs)$longitude) * 0.9998, max(V(gs)$longitude) * 1.0002),
+    ylim = c(min(V(gs)$latitude) * 0.9998, max(V(gs)$latitude) * 1.0002), 
+    edge.curved = FALSE, edge.arrow.width = 0, 
+    vertex.size = 0.1)
+
+
+## Now let's create a new graph from our tube map points, i.e. 3x2
+## vertices for each person
+original.points <- igraph::make_empty_graph(n = 6, directed = TRUE)
+
+## Add the latitude, longitude and name of these stops
+V(original.points)$latitude <- lapply(tubes, function(x) {
+    return((rbind(x$Location$StartLat, x$Location$EndLat)))
+}) %>% unlist
+
+V(original.points)$longitude <- lapply(tubes, function(x) {
+    return((rbind(x$Location$StartLong, x$Location$EndLong)))
+}) %>% unlist
+
+V(original.points)$name <- c("A Start", "A End", "B Start",
+                             "B End", "C Start", "C End")
+
+## Now let's plot these on top
+igraph::plot.igraph(original.points, layout = as.matrix(cbind(V(original.points)$longitude, 
+    V(original.points)$latitude)), vertex.label.cex = 1, vertex.size = 1, 
+    vertex.color = sort(replicate(2, heat.colors(3, alpha = 1))), rescale = FALSE, 
+    add = TRUE)
+
+## And for niceness, let's plot the tube lines as well
+igraph::plot.igraph(g, layout = as.matrix(cbind(V(g)$longitude, V(g)$latitude)), 
+    vertex.label = NA, vertex.label.cex = 0, vertex.size = 0, edge.color = E(g)$line.colour, 
+    edge.arrow.width = 0, edge.curved = FALSE, rescale = FALSE, xlim = c(min(V(g)$longitude), 
+        max(V(g)$longitude)), ylim = c(min(V(g)$latitude), max(V(g)$latitude)), 
+    add = TRUE)
+
+
+```
+
+In this plot, only tubes with labels are ones within our subgraph and we can see
+that they capture well where our users are based. 
+
+## 3. Storage and Extension
+
+The last section is shorter and more open ended again for everyone to start thinking
+about how might be best to store data as citigrapher grows, and also how best 
+to improve on this section. 
+
+Firstly, let's save the object gs that we have created, so we can use it next time.
+
+```{r gs saving, message=FALSE, warning=FALSE, include=TRUE, results="hide"}
+
+## igraph saving as R object
+saveRDS(gs,"inst/extdata/subgraph.rds") 
+
+## igraph saving as gml object that works well with the python networkx module
+igraph::write.graph(gs,file = "inst/extdata/subgraph.graphML",format = "gml")
+
+```
+
+We also might want to start thinking about improvements to the above. Firstly, 
+we can see that there are unnecessary tubes to the west of A_Start. This extra
+loop of tubes seems unlikely to be helpful, and results from having East Acton
+as our centre within the mst. Thus we could iterate around the mst process by adding
+the edge weights to the fully connected graph. 
+
+Going forward we will want to then start thinking about how we might search within
+this subgraph for the distance for each user to a tube stop. We could do this with
+brute force, iteratively going through each tube. This will take a long time so 
+perhaps pruning our subgraph to not include this western loop might make sense.
+This represents some of the last steps within Kou's algorithm. There are lots
+of other things that need to be extended at the moment (tube line changes, number
+of changes people want to make, night tube considerations etc), but hopefully we can 
+start to see it taking shape. 
+
+---
+
+## Summary
+
+Hopefully the above tutorial has shown a framework in R of how we can start probing
+the london tube map as a graph object using the *igraph* package. As always if anyone
+has any other ideas, or ways of approaching this problem then let me know either
+as an issue in the github repo, or drop me a message. I hope this has been useful 
+and interesting, and next time we will (probably) move to part 4 (as part 3 will
+be more graph theory so let's keep it varied!) and start looking for how to search
+google for posible activities and ways of ranking them given we have a set of tube stops
+we are happy with as a result of part 3. 

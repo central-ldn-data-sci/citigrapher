@@ -1,0 +1,31 @@
+body {
+  font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif !important;
+  line-height: 1.7 !important;
+  font-size: 16px !important;
+  color: #515153 !important;
+  text-align: justify;
+
+}
+
+h1, h2 {
+  font-family: "Libre Baskerville", serif !important;
+  text-align: left !important;
+}
+
+
+a {
+  color: #4A6A83;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif !important;
+}
+
+a:hover {
+  color: #83accd;
+}
+
+.tocify{
+  text-indent: 5px;
+  min-width: 215px !important;
+  font-size: smaller;
+}
+
+
